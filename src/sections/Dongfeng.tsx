@@ -20,14 +20,6 @@ function Car({ className = '' }: { className?: string }) {
   )
 }
 
-// Callouts: an anchor on the side-view car (680 x 280 space) and where its leader line ends.
-const anchors = [
-  { x: 310, y: 58, tx: 500, ty: -70 }, // cabin: infotainment
-  { x: 40, y: 128, tx: 150, ty: -70 }, // headlight: feature-forward
-  { x: 648, y: 104, tx: 530, ty: 370 }, // tail: multi-platform
-  { x: 110, y: 219, tx: 150, ty: 370 }, // front wheel: running costs
-]
-
 export default function Dongfeng() {
   const root = useRef<HTMLElement>(null)
 
@@ -110,37 +102,7 @@ export default function Dongfeng() {
         },
       })
 
-      // ---------- 3. spec sheet rows ----------
-      gsap.utils.toArray<HTMLElement>('.df-spec li').forEach((row) => {
-        gsap.from(row.children, {
-          y: 30,
-          opacity: 0,
-          stagger: 0.06,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: row, start: 'top 85%' },
-        })
-        gsap.from(row.querySelector('.df-x'), {
-          scale: 0,
-          rotate: -90,
-          duration: 0.6,
-          ease: 'back.out(2)',
-          scrollTrigger: { trigger: row, start: 'top 80%' },
-        })
-      })
-
-      // ---------- 4. the Box parks, callouts draw ----------
-      const park = gsap.timeline({ scrollTrigger: { trigger: '.df-strat-stage', start: 'top 75%', end: 'center 45%', scrub: 0.6 } })
-      const parkCar = el.querySelector<HTMLElement>('.df-strat-stage .df-car')!
-      const parkRims = parkCar.querySelectorAll('.df-rim')
-      park
-        .fromTo(parkCar, { xPercent: 70, opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power2.out', duration: 1 }, 0)
-        .fromTo(parkRims, { rotate: 400 }, { rotate: 0, ease: 'power2.out', duration: 1 }, 0)
-        .fromTo('.df-callout-line', { strokeDashoffset: 1 }, { strokeDashoffset: 0, stagger: 0.12, duration: 0.5 }, 0.7)
-        .fromTo('.df-callout', { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.12, duration: 0.5 }, 0.8)
-        .fromTo('.df-dot', { scale: 0 }, { scale: 1, stagger: 0.12, duration: 0.3 }, 0.7)
-
-      // ---------- 5. results ----------
+      // ---------- 3. results ----------
       gsap.from('.df-bar i', {
         scaleX: 0,
         duration: 1.6,
@@ -217,50 +179,7 @@ export default function Dongfeng() {
           </p>
         </div>
 
-        {/* 3. challenge as a spec sheet */}
-        <div className="wrap df-challenge">
-          <h3 className="t-h2 df-h2">{d.challengeTitle}</h3>
-          <ul className="df-spec">
-            {d.challenges.map((c) => (
-              <li key={c.title}>
-                <span className="df-x" aria-hidden="true" />
-                <h4 className="t-h3">{c.title}</h4>
-                <p className="t-body">{c.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* 4. strategy: the Box parks, pillars call out */}
-        <div className="wrap df-strategy">
-          <div className="df-strat-copy">
-            <h3 className="t-h2 df-h2">{d.strategyTitle}</h3>
-            <p className="t-lead df-strat-body">{d.strategyBody}</p>
-          </div>
-          <div className="df-strat-stage">
-            <div className="df-strat-car">
-              <Car />
-              <svg className="df-lines" viewBox="0 0 680 280" preserveAspectRatio="none" aria-hidden="true">
-                {anchors.map((a, i) => (
-                  <path key={i} className="df-callout-line" d={`M${a.x} ${a.y} L${a.tx} ${a.ty}`} pathLength={1} />
-                ))}
-              </svg>
-              {anchors.map((a, i) => (
-                <span key={i} className="df-dot" style={{ left: `${(a.x / 680) * 100}%`, top: `${(a.y / 280) * 100}%` }} />
-              ))}
-            </div>
-            <ul className="df-callouts">
-              {d.pillars.map((p, i) => (
-                <li key={p.title} className={`df-callout df-c${i}`}>
-                  <h4 className="t-h3">{p.title}</h4>
-                  <p className="t-body">{p.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* 5. results */}
+        {/* 3. results */}
         <div className="wrap df-results">
           <div className="df-res-head">
             <p className="df-big">
@@ -323,7 +242,7 @@ export default function Dongfeng() {
           </div>
         </div>
 
-        {/* 6. reels */}
+        {/* 4. reels */}
         <div className="wrap df-reels">
           <ReelFeed reels={d.reels} handle="Dongfeng Sri Lanka" accent="#CDEB35" />
         </div>
