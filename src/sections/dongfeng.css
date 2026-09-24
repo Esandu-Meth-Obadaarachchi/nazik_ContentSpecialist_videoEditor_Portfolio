@@ -409,3 +409,9 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .df-big {
+    font-size: 22vw;
+  }
+}

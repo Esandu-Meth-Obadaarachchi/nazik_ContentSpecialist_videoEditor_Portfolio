@@ -249,18 +249,20 @@
   to { transform: scaleX(1); }
 }
 
+/* stacked name: phones and portrait tablets (class set from Hero.tsx) */
+.hero.is-stacked .hero-name {
+  font-size: min(17vw, 11vh);
+}
+.hero.is-stacked .hn-first,
+.hero.is-stacked .hn-last {
+  left: 0;
+  right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: center;
+}
+
 @media (max-width: 759px) {
-  .hero-name {
-    font-size: 17vw;
-  }
-  .hn-first,
-  .hn-last {
-    left: 0;
-    right: 0;
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: center;
-  }
   .hero-hud {
     padding: 14px 28px 0;
     font-size: 9px;
