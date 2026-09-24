@@ -1,0 +1,210 @@
+.experience {
+  position: relative;
+  padding: clamp(100px, 13vw, 190px) 0 clamp(60px, 8vw, 120px);
+  background: var(--suite);
+}
+
+.xp-head {
+  display: grid;
+  gap: 28px;
+  max-width: 900px;
+  margin-bottom: clamp(56px, 7vw, 100px);
+}
+.xp-logo {
+  width: clamp(140px, 14vw, 200px);
+  height: auto;
+}
+
+.takes {
+  display: grid;
+  gap: 8vh;
+  padding-bottom: 6vh;
+}
+
+.slate {
+  position: sticky;
+  top: calc(84px + var(--i) * 26px);
+}
+.slate-inner {
+  --dim: 0;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  transform-origin: top center;
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.55));
+}
+
+.slate-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--suite);
+  opacity: var(--dim);
+  border-radius: 6px 6px 10px 10px;
+}
+
+/* clapper sticks */
+.clapper {
+  position: relative;
+  height: 56px;
+}
+.clap-base,
+.clap-arm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 38px;
+  border-radius: 6px 6px 0 0;
+  background:
+    repeating-linear-gradient(-58deg, #f1efe8 0 34px, #111113 34px 68px);
+  border: 2px solid #111113;
+}
+.clap-base {
+  bottom: 0;
+  border-radius: 0;
+}
+.clap-arm {
+  bottom: 18px;
+  height: 36px;
+  transform-origin: 3% 100%;
+  background: repeating-linear-gradient(58deg, #f1efe8 0 34px, #111113 34px 68px);
+}
+.clap-arm::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  bottom: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8a8a92;
+  border: 2px solid #111113;
+}
+
+.slate-board {
+  background: #18181c;
+  border: 2px solid #111113;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.slate-meta {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.6fr 2fr;
+  border-bottom: 1px solid rgba(236, 235, 231, 0.18);
+}
+.slate-meta div {
+  padding: 14px 18px;
+  display: grid;
+  gap: 6px;
+}
+.slate-meta div + div {
+  border-left: 1px solid rgba(236, 235, 231, 0.18);
+}
+.slate-meta dt {
+  font-size: 9.5px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.slate-meta dd {
+  font-size: 13px;
+  color: var(--paper);
+  white-space: nowrap;
+}
+.slate-scene {
+  padding: 24px 26px 10px;
+  display: grid;
+  gap: 10px;
+}
+.slate-scene span {
+  font-size: 10px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.slate-scene h3 {
+  font-weight: 800;
+  font-size: clamp(34px, 5.6vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'wdth' 120;
+}
+.slate-body {
+  padding: 8px 26px 28px;
+  max-width: 68ch;
+  color: rgba(236, 235, 231, 0.72);
+}
+
+/* ---------- brand roster ---------- */
+.roster {
+  margin-top: clamp(80px, 12vw, 180px);
+}
+.roster-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--dim);
+  margin-bottom: 36px;
+  font-variation-settings: 'wdth' 100;
+}
+.roster-marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.roster-row {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee 38s linear infinite;
+}
+.roster-marquee:hover .roster-row {
+  animation-play-state: paused;
+}
+.roster-row li {
+  height: 150px;
+  padding: 0 clamp(40px, 5vw, 80px);
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--rule);
+}
+.roster-row img {
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  opacity: 0.82;
+  transition: opacity 0.3s;
+}
+.roster-row li:hover img {
+  opacity: 1;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 700px) {
+  .slate-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  .slate-meta div:nth-child(3) {
+    border-left: 0;
+  }
+  .slate-meta div:nth-child(n + 3) {
+    border-top: 1px solid rgba(236, 235, 231, 0.18);
+  }
+  .clap-base,
+  .clap-arm {
+    background-size: auto;
+  }
+  .roster-row li {
+    height: 110px;
+  }
+  .roster-row img {
+    max-width: 150px;
+    transform: scale(0.8);
+  }
+}

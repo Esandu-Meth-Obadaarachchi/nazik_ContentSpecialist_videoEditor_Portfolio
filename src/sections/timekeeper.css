@@ -1,0 +1,191 @@
+.tk {
+  --a: 0deg;
+  --p: 0;
+  position: relative;
+  color: #efe9da;
+  background: var(--jt-black);
+  overflow: hidden;
+}
+/* the clock wipe: navy dial face revealed by a sweeping conic mask */
+.tk-face {
+  position: relative;
+  background:
+    radial-gradient(80% 60% at 50% 30%, #243052 0%, transparent 70%),
+    var(--tk-navy);
+  -webkit-mask-image: conic-gradient(from 0deg at 50% 18vh, #000 var(--a), transparent var(--a));
+  mask-image: conic-gradient(from 0deg at 50% 18vh, #000 var(--a), transparent var(--a));
+  padding: clamp(110px, 14vw, 190px) 0 clamp(110px, 12vw, 180px);
+  overflow: hidden;
+}
+.tk-sweep {
+  position: absolute;
+  left: 50%;
+  top: 18vh;
+  width: 2px;
+  height: 200vh;
+  background: linear-gradient(180deg, var(--tk-gold), rgba(210, 174, 85, 0));
+  transform-origin: 50% 0;
+  transform: rotate(calc(var(--a) + 180deg));
+  opacity: calc(1 - var(--p));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tk-inner {
+  position: relative;
+}
+.tk-head {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto clamp(60px, 8vw, 110px);
+}
+.tk-logo {
+  width: clamp(90px, 8vw, 120px);
+  height: auto;
+}
+.tk-h1 {
+  font-weight: 300;
+  font-size: clamp(44px, 6.6vw, 108px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'wdth' 88;
+  text-wrap: balance;
+  color: #f6f0e1;
+}
+.tk-sum {
+  max-width: 44ch;
+  color: rgba(239, 233, 218, 0.78);
+}
+.tk-total {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+}
+.tk-total > span:first-child {
+  font-weight: 800;
+  font-size: clamp(40px, 4vw, 64px);
+  line-height: 1;
+  color: var(--tk-gold);
+  font-variation-settings: 'wdth' 110;
+}
+.tk-total > span:last-child {
+  font-size: 15px;
+  color: rgba(239, 233, 218, 0.72);
+}
+
+.tk-stage {
+  position: relative;
+  padding-top: 40px;
+}
+.tk-dial {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(88vw, 900px);
+  height: auto;
+  transform: translateX(-50%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.d-outer {
+  fill: none;
+  stroke: rgba(210, 174, 85, 0.5);
+  stroke-width: 1;
+}
+.d-inner {
+  fill: rgba(10, 14, 28, 0.35);
+  stroke: rgba(210, 174, 85, 0.25);
+  stroke-width: 0.8;
+}
+.d-hour {
+  stroke: var(--tk-gold);
+  stroke-width: 3;
+}
+.d-min {
+  stroke: rgba(210, 174, 85, 0.45);
+  stroke-width: 1;
+}
+.tk-hand-h path,
+.tk-hand-m path {
+  fill: var(--tk-gold);
+}
+.d-hub {
+  fill: var(--tk-gold);
+}
+
+.tk-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(20px, 4vw, 70px);
+}
+.tk-item {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+}
+.tk-item-0,
+.tk-item-2 {
+  margin-top: 90px;
+}
+.tk-item-0 .tk-phone {
+  rotate: -4deg;
+}
+.tk-item-2 .tk-phone {
+  rotate: 4deg;
+}
+.tk-phone {
+  --pw: clamp(210px, 19vw, 280px);
+  --reel-accent: var(--tk-gold);
+}
+.tk-meta {
+  text-align: center;
+  display: grid;
+  gap: 6px;
+  max-width: 28ch;
+}
+.tk-views {
+  font-weight: 800;
+  font-size: clamp(30px, 2.8vw, 44px);
+  line-height: 1;
+  font-variation-settings: 'wdth' 112;
+  color: var(--tk-gold);
+}
+.tk-hook {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.tk-split {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 10.5px;
+  color: rgba(239, 233, 218, 0.62);
+}
+
+@media (max-width: 900px) {
+  .tk-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+  }
+  .tk-item-0,
+  .tk-item-2 {
+    margin-top: 0;
+  }
+  .tk-item .tk-phone {
+    rotate: 0deg;
+  }
+  .tk-phone {
+    --pw: min(70vw, 300px);
+  }
+  .tk-dial {
+    width: 150vw;
+  }
+}

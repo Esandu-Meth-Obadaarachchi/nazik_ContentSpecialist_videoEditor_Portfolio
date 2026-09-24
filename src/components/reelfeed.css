@@ -1,0 +1,212 @@
+.feed {
+  --fg: currentColor;
+  position: relative;
+}
+
+.feed-head {
+  display: grid;
+  gap: 14px;
+  max-width: 62ch;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+.feed-title {
+  font-variation-settings: 'wdth' 118;
+}
+.feed-intro {
+  opacity: 0.78;
+}
+.feed-sum {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.feed-sum strong {
+  font-weight: 500;
+  color: var(--reel-accent);
+  font-size: 15px;
+  margin-right: 4px;
+}
+
+.feed-body {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 110px);
+  align-items: start;
+}
+
+.feed-stage {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.feed-phone {
+  --pw: clamp(260px, 24vw, 350px);
+}
+.feed-stack {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.feed-slide {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.feed-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.feed-nav button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.feed-nav button:hover {
+  background: var(--reel-accent);
+  border-color: var(--reel-accent);
+  color: #0b0b0c;
+}
+.feed-nav button:active {
+  transform: scale(0.94);
+}
+.feed-nav span {
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+.feed-nav span i {
+  font-style: normal;
+  opacity: 0.4;
+  margin: 4px 0;
+}
+
+/* index */
+.feed-index {
+  display: grid;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+.feed-index li {
+  position: relative;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+.fi {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(92px, 7.5em) 1fr;
+  gap: 20px;
+  align-items: baseline;
+  text-align: left;
+  padding: 18px 52px 18px 0;
+  position: relative;
+  transition: color 0.3s, padding 0.5s var(--ease-out);
+}
+.fi::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 6px;
+  height: 0;
+  background: var(--reel-accent);
+  transform: translateY(-50%);
+  transition: height 0.4s var(--ease-out);
+}
+.fi.is-on::before {
+  height: 60%;
+}
+.fi-views {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'wdth' 112;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.4;
+  transition: opacity 0.3s, color 0.3s;
+}
+.fi.is-on .fi-views,
+.fi:hover .fi-views {
+  opacity: 1;
+}
+.fi.is-on .fi-views {
+  color: var(--reel-accent);
+}
+.fi-text {
+  display: grid;
+  gap: 4px;
+}
+.fi-hook {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  font-variation-settings: 'wdth' 104;
+}
+.fi-si {
+  font-size: 14px;
+  opacity: 0.62;
+}
+.fi-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 10.5px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s, max-height 0.5s var(--ease-out), margin 0.5s var(--ease-out);
+}
+.fi.is-on .fi-split {
+  opacity: 0.8;
+  max-height: 40px;
+  margin-top: 6px;
+}
+
+.fi-link {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  opacity: 0.55;
+  transition: opacity 0.3s, background 0.3s;
+}
+.fi-link:hover {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+@media (max-width: 900px) {
+  .feed-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .feed-stage {
+    justify-content: center;
+  }
+  .feed-phone {
+    --pw: min(calc(100vw - 2 * var(--gutter) - 70px), 330px);
+  }
+  .feed-stage {
+    gap: 12px;
+  }
+  .fi {
+    grid-template-columns: 84px 1fr;
+    gap: 14px;
+  }
+  .fi::before {
+    left: -10px;
+  }
+}
