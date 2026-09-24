@@ -136,46 +136,6 @@ export const dongfeng = {
     { value: 432.5, suffix: 'K', decimals: 1, label: 'Content interactions' },
     { value: 200, prefix: '+', suffix: '%', decimals: 0, label: 'Monthly sales growth' },
   ],
-  challengeTitle: 'Our biggest challenge? A comparison-obsessed buyer.',
-  challenges: [
-    {
-      title: 'No borrowed credibility anywhere',
-      body: 'Dongfeng had no market anywhere in the world where the brand was already established. Credibility had to be built entirely from scratch.',
-    },
-    {
-      title: 'A competitive sandwich',
-      body: 'Cheaper brands undercut on price, while BYD sat just above with a broadly similar product and credibility Dongfeng didn’t yet have. No obvious wedge on either side.',
-    },
-    {
-      title: 'An extremely comparison-driven segment',
-      body: 'In the Rs. 8M-12M bracket, buyers compare specs feature by feature. One or two missing features can lose the sale to a competitor.',
-    },
-    {
-      title: 'Extreme price sensitivity',
-      body: 'Buyers switch to a cheaper vehicle over a difference of just Rs. 300,000-400,000, and a meaningful share are also weighing the used-car market, not just other EVs.',
-    },
-  ],
-  strategyTitle: "Win the spec sheet, then win the buyer's actual budget anxiety.",
-  strategyBody:
-    'Rather than asking buyers to pay more on trust alone, the strategy gave them a concrete, checkable reason the Box was the better feature-for-price choice, in a segment already comparing it feature by feature regardless.',
-  pillars: [
-    {
-      title: 'Infotainment content',
-      body: 'Every piece communicated brand and product messaging in an entertaining way: skits, challenges, humour.',
-    },
-    {
-      title: 'Feature-forward, not flash-forward',
-      body: "Content isolated specific features the Box had that competitors in the same bracket didn't, verified against buyers' actual priorities.",
-    },
-    {
-      title: 'Multi-platform short-form',
-      body: 'Run simultaneously across TikTok, YouTube, Facebook and Instagram. ~16.0M organic views on Meta alone.',
-    },
-    {
-      title: 'Sharp pain points',
-      body: 'Content aimed squarely at what this buyer was facing: rising petrol costs and the falling resale value of their old second-hand vehicle.',
-    },
-  ],
   platformViews: [
     { name: 'Facebook', value: 45.2 },
     { name: 'Instagram', value: 5.7 },

@@ -158,10 +158,6 @@
   background: linear-gradient(180deg, #2f55f0 0%, #3e5cff 12%, #3a5afc 60%, #2447e8 100%);
 }
 
-.df-h2 {
-  max-width: 17ch;
-}
-
 /* battery */
 .df-charge-wrap {
   margin-bottom: clamp(110px, 14vw, 200px);
@@ -229,144 +225,6 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--df-lime);
-}
-
-/* spec sheet */
-.df-challenge {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(40px, 6vw, 100px);
-  margin-bottom: clamp(120px, 15vw, 220px);
-}
-.df-spec {
-  border-top: 1.5px solid rgba(255, 255, 255, 0.5);
-}
-.df-spec li {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 8px 16px;
-  padding: 26px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
-}
-.df-spec h4 {
-  grid-column: 2;
-}
-.df-spec p {
-  grid-column: 2;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 56ch;
-}
-.df-x {
-  grid-row: 1 / 3;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px;
-  border-radius: 50%;
-  background: #fff;
-  position: relative;
-}
-.df-x::before,
-.df-x::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 11px;
-  height: 2px;
-  background: var(--df-blue);
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.df-x::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-/* strategy */
-.df-strategy {
-  margin-bottom: clamp(120px, 15vw, 220px);
-}
-.df-strat-copy {
-  display: grid;
-  gap: 24px;
-  max-width: 900px;
-  margin-bottom: clamp(60px, 8vw, 110px);
-}
-.df-strat-body {
-  max-width: 50ch;
-  color: rgba(255, 255, 255, 0.85);
-}
-.df-strat-stage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    'c1 c0'
-    'car car'
-    'c3 c2';
-  gap: 28px clamp(40px, 8vw, 140px);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.df-callouts {
-  display: contents;
-}
-.df-c0 { grid-area: c0; }
-.df-c1 { grid-area: c1; }
-.df-c2 { grid-area: c2; }
-.df-c3 { grid-area: c3; }
-.df-callout {
-  display: grid;
-  gap: 8px;
-  align-content: start;
-  max-width: 40ch;
-}
-.df-c0,
-.df-c2 {
-  justify-self: end;
-}
-.df-callout h4 {
-  color: var(--df-lime);
-}
-.df-callout p {
-  color: rgba(255, 255, 255, 0.82);
-}
-.df-strat-car {
-  grid-area: car;
-  position: relative;
-  width: min(100%, 760px);
-  aspect-ratio: 680 / 280;
-  justify-self: center;
-  margin: 70px 0;
-}
-.df-strat-car .df-car {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  bottom: auto;
-}
-.df-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  z-index: 4;
-  pointer-events: none;
-}
-.df-callout-line {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.2;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-}
-.df-dot {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  margin: -6px 0 0 -6px;
-  border-radius: 50%;
-  background: var(--df-lime);
-  box-shadow: 0 0 0 4px rgba(205, 235, 53, 0.3);
-  z-index: 5;
 }
 
 /* results */
@@ -530,7 +388,6 @@
   .df-cells li:nth-child(n + 3) {
     border-top: 1.5px dashed rgba(255, 255, 255, 0.3);
   }
-  .df-challenge,
   .df-res-grid {
     grid-template-columns: 1fr;
   }
@@ -540,20 +397,7 @@
   .df-res-head .t-lead {
     padding-bottom: 0;
   }
-  .df-strat-stage {
-    grid-template-columns: 1fr;
-    grid-template-areas: 'car' 'c0' 'c1' 'c2' 'c3';
-  }
-  .df-c0,
-  .df-c2 {
-    justify-self: start;
-  }
-  .df-lines {
-    display: none;
-  }
-  .df-strat-car {
-    margin: 10px 0 20px;
-  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
