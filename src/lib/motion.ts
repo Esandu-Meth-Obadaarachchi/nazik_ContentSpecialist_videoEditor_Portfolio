@@ -4,6 +4,9 @@ import { useGSAP } from '@gsap/react'
 import Lenis from 'lenis'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
+// Mobile browsers resize the viewport as the address bar shows/hides; re-measuring
+// pinned sections on every one of those makes them jump.
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 export const reducedMotion =
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches

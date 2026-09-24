@@ -92,7 +92,9 @@ export default function Hero({ ready }: { ready: boolean }) {
       const measure = () => {
         vw = window.innerWidth
         vh = window.innerHeight
-        wide = vw >= 760
+        // side-by-side names need a landscape screen; portrait tablets stack like phones
+        wide = vw >= 760 && vw / vh >= 1.15
+        el.classList.toggle('is-stacked', !wide)
         h0 = Math.min(vw / 2.39, vh * 0.78)
         // final frame uses a real iPhone screen ratio (9:19.5), not a squat 9:16
         h1 = wide ? vh * 0.8 : vh * 0.6

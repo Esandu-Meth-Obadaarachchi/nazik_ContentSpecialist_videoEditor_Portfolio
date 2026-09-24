@@ -444,3 +444,10 @@
     margin-top: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .jt-big {
+    font-size: 21vw;
+    font-variation-settings: 'wdth' 100;
+  }
+}

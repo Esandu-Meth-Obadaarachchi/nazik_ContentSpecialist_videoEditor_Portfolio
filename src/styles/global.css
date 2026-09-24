@@ -49,6 +49,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* pinned sections go position:fixed and escape body's clip; stop sideways panning on phones */
+  overflow-x: clip;
 }
 
 html.lenis,
