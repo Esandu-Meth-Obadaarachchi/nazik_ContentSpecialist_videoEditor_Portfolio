@@ -13,36 +13,13 @@ function Artifact({ id }: { id: string }) {
           <p className="pa-si t-si" lang="si">
             <span className="caption-box">මොනවද හිතන්නේ?</span>
           </p>
-          <p className="pa-en">What do you think?</p>
-          <p className="t-mono pa-note">Hooks written in the language the buyer thinks in.</p>
+          <p className="t-mono pa-note">"What do you think?" Hooks in the language the buyer thinks in.</p>
         </div>
-      )
-    case 'strategy':
-      return (
-        <dl className="pa pa-wedge">
-          <div>
-            <dt className="t-mono">Dongfeng</dt>
-            <dd>Features over flash</dd>
-          </div>
-          <div>
-            <dt className="t-mono">Jetour</dt>
-            <dd>Design as the pitch</dd>
-          </div>
-        </dl>
-      )
-    case 'ideas':
-      return (
-        <ul className="pa pa-formats">
-          {['Skits', 'Challenges', 'Customer interviews', 'Owner testimonials', 'Explainers', 'Humour', 'Walkarounds'].map((f) => (
-            <li key={f}>{f}</li>
-          ))}
-        </ul>
       )
     case 'script':
       return (
         <div className="pa pa-script t-mono" aria-label="A screenplay-format script fragment">
           <p className="sc-slug">INT. SHOWROOM - DAY</p>
-          <p className="sc-action">A buyer circles the T2. Arms folded. Not convinced.</p>
           <p className="sc-char">NAZIK (O.S.)</p>
           <p className="sc-line">So what made you pick this one?</p>
           <p className="sc-char">OWNER</p>
@@ -57,10 +34,6 @@ function Artifact({ id }: { id: string }) {
             <b />
             REC
           </span>
-          <i className="vf tl" />
-          <i className="vf tr" />
-          <i className="vf bl" />
-          <i className="vf br" />
         </figure>
       )
     case 'edit':
@@ -85,22 +58,18 @@ function Artifact({ id }: { id: string }) {
       )
     case 'scale':
       return (
-        <ul className="pa pa-platforms">
+        <ul className="pa pa-platforms" aria-label="Facebook, Instagram, TikTok, YouTube">
           <li>
-            <FacebookLogoIcon size={26} />
-            Facebook
+            <FacebookLogoIcon size={22} />
           </li>
           <li>
-            <InstagramLogoIcon size={26} />
-            Instagram
+            <InstagramLogoIcon size={22} />
           </li>
           <li>
-            <TiktokLogoIcon size={26} />
-            TikTok
+            <TiktokLogoIcon size={22} />
           </li>
           <li>
-            <YoutubeLogoIcon size={26} />
-            YouTube
+            <YoutubeLogoIcon size={22} />
           </li>
         </ul>
       )
@@ -116,54 +85,35 @@ export default function Process() {
     () => {
       if (reducedMotion) return
       const mm = gsap.matchMedia()
+      // desktop: a short pinned sideways pass; the page scrolls less than the track moves
       mm.add('(min-width: 900px)', () => {
         const track = root.current!.querySelector<HTMLElement>('.pr-track')!
-        const clips = root.current!.querySelector<HTMLElement>('.pr-clips')!
-        const panels = gsap.utils.toArray<HTMLElement>('.pr-panel')
         const tc = root.current!.querySelector<HTMLElement>('.pr-tc')!
-        const dist = () => track.scrollWidth - window.innerWidth
-        const tween = gsap.timeline({
-          defaults: { ease: 'none' },
+        const bar = root.current!.querySelector<HTMLElement>('.pr-bar i')!
+        const dist = () => Math.max(0, track.scrollWidth - window.innerWidth)
+        const tween = gsap.to(track, {
+          x: () => -dist(),
+          ease: 'none',
           scrollTrigger: {
             trigger: root.current!.querySelector('.pr-pin'),
             start: 'top top',
-            end: () => `+=${dist()}`,
+            end: () => `+=${dist() * 0.55}`,
             pin: true,
-            scrub: 0.8,
+            scrub: 0.5,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              tc.textContent = timecode(self.progress * 94)
+              tc.textContent = timecode(self.progress * 60)
+              bar.style.transform = `scaleX(${self.progress})`
             },
           },
         })
-        tween.to(track, { x: () => -dist() }, 0).to(clips, { x: () => -dist() * 0.5 }, 0)
-        panels.forEach((p) => {
+        gsap.utils.toArray<HTMLElement>('.pr-panel').forEach((p) => {
           ScrollTrigger.create({
             trigger: p,
             containerAnimation: tween,
-            start: 'left 55%',
-            end: 'right 45%',
+            start: 'left 70%',
+            end: 'right 30%',
             toggleClass: 'is-live',
-          })
-          gsap.from(p.querySelectorAll('.pr-anim'), {
-            y: 50,
-            opacity: 0,
-            stagger: 0.08,
-            ease: 'power3.out',
-            duration: 1,
-            scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left 80%' },
-          })
-        })
-      })
-      mm.add('(max-width: 899px)', () => {
-        gsap.utils.toArray<HTMLElement>('.pr-panel').forEach((p) => {
-          gsap.from(p.querySelectorAll('.pr-anim'), {
-            y: 40,
-            opacity: 0,
-            stagger: 0.08,
-            duration: 0.9,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: p, start: 'top 82%' },
           })
         })
       })
@@ -178,44 +128,29 @@ export default function Process() {
         <div className="pr-track">
           <header className="pr-intro">
             <h2 id="process-title" className="t-h2">
-              The whole package, from first insight to final frame.
+              The whole package.
             </h2>
-            <p className="t-lead pr-intro-sub">
-              Strategy, ideas, scripts, the shoot and the cut. I run every stage, with a team of editors, designers and
-              social media managers executing alongside me.
-            </p>
+            <p className="t-lead pr-intro-sub">Strategy, scripts, the shoot and the cut, run end to end with my team.</p>
           </header>
 
           {pipeline.map((s, i) => (
-            <article key={s.id} className={`pr-panel pr-${s.id}`}>
-              <p className="pr-tag t-mono pr-anim">
-                <span>{timecode(i * 13.4 + 4)}</span>
+            <article key={s.id} className="pr-panel">
+              <p className="pr-tag t-mono">
+                <span>{String(i + 1).padStart(2, '0')}</span>
                 {s.tag}
               </p>
-              <h3 className="pr-title pr-anim">{s.title}</h3>
-              <p className="t-body pr-body pr-anim">{s.body}</p>
-              <div className="pr-anim pr-art">
-                <Artifact id={s.id} />
-              </div>
+              <h3 className="pr-title">{s.title}</h3>
+              <p className="pr-body">{s.body}</p>
+              <Artifact id={s.id} />
             </article>
           ))}
-          <div className="pr-tail" aria-hidden="true" />
         </div>
 
-        <div className="pr-timeline" aria-hidden="true">
+        <div className="pr-meter" aria-hidden="true">
           <span className="pr-tc t-mono">00:00:00:00</span>
-          <div className="pr-clips-wrap">
-            <div className="pr-clips">
-              <span className="pr-clip pr-clip-intro" />
-              {pipeline.map((s) => (
-                <span key={s.id} className="pr-clip">
-                  <span className="t-mono">{s.tag}</span>
-                </span>
-              ))}
-              <span className="pr-clip pr-clip-tail" />
-            </div>
-          </div>
-          <span className="pr-playhead" />
+          <span className="pr-bar">
+            <i />
+          </span>
         </div>
       </div>
     </section>
