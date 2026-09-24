@@ -58,44 +58,32 @@ export const about = {
 export const pipeline = [
   {
     id: 'audience',
-    title: 'Know the audience',
-    body: 'Culture, language, everyday reality. Before a single script, I learn who is watching and what they actually worry about.',
-    tag: 'Research',
-  },
-  {
-    id: 'strategy',
-    title: 'Find the wedge',
-    body: 'Positioning that a skeptical buyer can check for themselves. Features over flash for Dongfeng. Design as the pitch for Jetour.',
-    tag: 'Brand strategy',
-  },
-  {
-    id: 'ideas',
-    title: 'Ideation',
-    body: 'Formats built for the feed, not the showroom: skits, challenges, customer interviews, explainers, humour.',
-    tag: 'Concepts',
+    title: 'Audience first',
+    body: 'Culture, language and everyday worries come before a single script, then a wedge a skeptical buyer can check.',
+    tag: 'Research & strategy',
   },
   {
     id: 'script',
-    title: 'Script it',
-    body: 'Character, situation, tension. The product shows up in the resolution, the hook lands in the first second.',
-    tag: 'Scriptwriting',
+    title: 'Ideas & scripts',
+    body: 'Skits, challenges, interviews and explainers. Character and tension first; the product lands in the resolution.',
+    tag: 'Concepts & scriptwriting',
   },
   {
     id: 'shoot',
     title: 'Direct the shoot',
-    body: 'On set with talent, crews and real owners. 32 unscripted owner testimonials for Jetour alone, in Sinhala and English.',
+    body: 'On set with talent, crews and real owners: 32 unscripted testimonials for Jetour alone.',
     tag: 'Creative direction',
   },
   {
     id: 'edit',
     title: 'Cut it',
-    body: 'Pacing, captions and sound, frame by frame. The edit is where I started, and it is still where the story is won.',
+    body: 'Pacing, captions and sound, frame by frame. The edit is where I started, and where the story is won.',
     tag: 'Video editing',
   },
   {
     id: 'scale',
     title: 'Publish, then scale',
-    body: 'Facebook, Instagram, TikTok and YouTube at once. Organic performance decides what paid media gets to amplify.',
+    body: 'Every platform at once. Organic performance decides what paid media amplifies.',
     tag: 'Distribution',
   },
 ]
