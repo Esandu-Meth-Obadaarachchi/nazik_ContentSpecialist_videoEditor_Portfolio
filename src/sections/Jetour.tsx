@@ -105,26 +105,9 @@ export default function Jetour() {
         onUpdate: (self) => ign.progress(self.progress),
       })
 
-      // challenge banner parallax
+      // problem banner parallax
       gsap.fromTo('.jt-wheels img', { yPercent: -12, scale: 1.15 }, { yPercent: 12, scale: 1.05, ease: 'none', scrollTrigger: { trigger: '.jt-wheels', scrub: true } })
 
-      // headlight beam scans the challenge list
-      const beam = gsap.timeline({ scrollTrigger: { trigger: '.jt-issues', start: 'top 70%', end: 'bottom 55%', scrub: 0.6 } })
-      beam.fromTo('.jt-beam', { xPercent: -100 }, { xPercent: 100, ease: 'none', duration: 1 }, 0)
-      gsap.utils.toArray<HTMLElement>('.jt-issue').forEach((item, i) => {
-        beam.fromTo(item, { opacity: 0.14 }, { opacity: 1, duration: 0.2 }, (i % 2) * 0.45 + Math.floor(i / 2) * 0.08 + 0.1)
-      })
-
-      // insight
-      gsap.from('.jt-insight-media > *', {
-        y: 80,
-        rotate: (i) => (i ? 6 : -5),
-        opacity: 0,
-        stagger: 0.12,
-        duration: 1.2,
-        ease: 'expo.out',
-        scrollTrigger: { trigger: '.jt-insight', start: 'top 70%' },
-      })
       gsap.from('.jt-pillar', {
         y: 50,
         opacity: 0,
@@ -193,48 +176,12 @@ export default function Jetour() {
         </div>
       </div>
 
-      {/* 2. challenge */}
+      {/* 2. the problem */}
       <div className="jt-body">
         <figure className="jt-wheels">
           <img src="/media/img/jetour-wheels.webp" alt="" loading="lazy" />
           <figcaption className="wrap t-h2">{j.challengeLead}</figcaption>
         </figure>
-
-        <div className="wrap jt-challenge">
-          <h3 className="jt-h2">
-            Our <em>biggest</em> challenge
-          </h3>
-          <div className="jt-issues">
-            <span className="jt-beam" aria-hidden="true" />
-            {j.challenges.map((c) => (
-              <article key={c.title} className="jt-issue">
-                <h4 className="t-h3">{c.title}</h4>
-                <p className="t-body">{c.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        {/* 3. insight */}
-        <div className="wrap jt-insight">
-          <div className="jt-insight-media">
-            <figure>
-              <img src="/media/img/jetour-desert.webp" alt="A Jetour T2 driving through desert dunes in the Middle East" loading="lazy" />
-              <figcaption className="t-mono">Why the Jetour is the fastest-selling SUV in the Middle East</figcaption>
-            </figure>
-            <figure className="jt-insight-map" aria-hidden="true">
-              <span className="t-mono">Dubai</span>
-              <i />
-              <span className="t-mono">Colombo</span>
-            </figure>
-          </div>
-          <div className="jt-insight-copy">
-            <p className="jt-kicker">
-              This insight changed <em>everything</em>
-            </p>
-            <p className="t-lead">{j.insight}</p>
-          </div>
-        </div>
 
         <ul className="wrap jt-pillars">
           {j.pillars.map((p) => (
@@ -245,7 +192,7 @@ export default function Jetour() {
           ))}
         </ul>
 
-        {/* 4. results */}
+        {/* 3. results */}
         <div className="wrap jt-results">
           <div className="jt-res-head">
             <p className="jt-big">
@@ -312,7 +259,7 @@ export default function Jetour() {
           </div>
         </div>
 
-        {/* 5. reels */}
+        {/* 4. reels */}
         <div className="wrap jt-reels">
           <ReelFeed reels={j.reels} handle="Jetour Sri Lanka" accent="#B3B5DC" />
         </div>

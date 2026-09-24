@@ -164,26 +164,6 @@ export const jetour = {
   summary: "How Jetour earned trust from zero in Sri Lanka's most skeptical vehicle category.",
   views: 62.9,
   challengeLead: 'We were selling a Chinese SUV to a market primed to distrust it.',
-  challenges: [
-    {
-      title: 'Zero brand recognition, island-wide',
-      body: 'No followers, no page history. The one exception was Sri Lankans with Middle East ties, where Jetour had already gained visibility.',
-    },
-    {
-      title: 'Sharp skepticism at the SUV price tier',
-      body: 'Chinese brands faced far more resistance at Rs. 15M-60M+ than in the budget segment. BYD was the one Chinese name that had broken through; the rest, Jetour included, were still fighting for legitimacy.',
-    },
-    {
-      title: 'A credibility and age problem',
-      body: 'Jetour has existed as a manufacturer for only five years, in a category where buyers expect a decade or more of ownership history and resale confidence.',
-    },
-    {
-      title: 'Weakest products first',
-      body: 'For the first 4-5 months, content centred on lesser-known models, not the flagship T1/T2. The hardest part of the trust-building job, done with the least compelling products.',
-    },
-  ],
-  insight:
-    'Many Middle East-based Sri Lankans already recognised Jetour there, associating its Defender-like design with aspiration. A pre-earned trust the campaign could build on.',
   pillars: [
     {
       title: 'Design as the core pitch',
