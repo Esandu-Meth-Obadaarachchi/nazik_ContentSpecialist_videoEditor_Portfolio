@@ -52,7 +52,7 @@ export const about = {
     { label: 'Automotive accounts led', value: 4, suffix: '', decimals: 0 },
     { label: 'Years in content', value: 5, suffix: '', prefix: '~', decimals: 0 },
   ],
-  award: { name: 'SLIM DIGIS 2026', tier: 'Gold' },
+  award: { name: 'SLIM DIGIS 2026', tier: 'Bronze', for: 'Jetour Sri Lanka' },
 }
 
 export const pipeline = [
@@ -324,7 +324,7 @@ export const credits = [
   { role: 'Edit', names: [person.full] },
   { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Timekeeper', 'The Butler', 'Perodua', 'Forthing'] },
   { role: 'Studio', names: ['Zirateh'] },
-  { role: 'Recognition', names: ['SLIM DIGIS 2026, Gold'] },
+  { role: 'Recognition', names: ['SLIM DIGIS 2026, Bronze (Jetour)'] },
 ]
 
 export const chapters = [

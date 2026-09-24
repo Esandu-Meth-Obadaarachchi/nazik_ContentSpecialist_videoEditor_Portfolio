@@ -11,14 +11,17 @@ export default function About() {
   useGSAP(
     () => {
       if (reducedMotion) return
-      // rack focus: the portrait pulls from soft to sharp, then the AF point locks
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: '.ab-photo', start: 'top 85%', end: 'center 50%', scrub: 0.6 },
-      })
-      tl.fromTo('.ab-photo img', { filter: 'blur(14px) saturate(0.4)', scale: 1.14 }, { filter: 'blur(0px) saturate(1)', scale: 1, ease: 'none' })
-        .fromTo('.ab-af', { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, ease: 'power2.out' }, 0)
-        .call(() => root.current?.querySelector('.ab-af')?.classList.remove('is-locked'), [], 0.95)
-        .call(() => root.current?.querySelector('.ab-af')?.classList.add('is-locked'), [], 1)
+      // rack focus: the portrait pulls from soft to sharp
+      gsap.fromTo(
+        '.ab-photo img',
+        { filter: 'blur(14px) saturate(0.4)', scale: 1.14 },
+        {
+          filter: 'blur(0px) saturate(1)',
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: { trigger: '.ab-photo', start: 'top 85%', end: 'center 50%', scrub: 0.6 },
+        },
+      )
 
       gsap.from('.ab-fact', {
         y: 40,
@@ -45,7 +48,6 @@ export default function About() {
         <figure className="ab-photo">
           <div className="ab-vf">
             <img src="/media/img/nazik-portrait.webp" alt="Mohamed Nazik Hamza, arms crossed, smiling" width={455} height={683} />
-            <span className="ab-af" aria-hidden="true" />
             <i className="vf tl" />
             <i className="vf tr" />
             <i className="vf bl" />
@@ -91,7 +93,10 @@ export default function About() {
             <dt className="t-mono">Recognition</dt>
             <dd>
               <span className="ab-award-name">{about.award.name}</span>
-              <span className="ab-award-tier">{about.award.tier}</span>
+              <span className="ab-award-row">
+                <span className="ab-award-tier">{about.award.tier}</span>
+                <span className="ab-award-for">{about.award.for}</span>
+              </span>
             </dd>
           </div>
         </dl>
