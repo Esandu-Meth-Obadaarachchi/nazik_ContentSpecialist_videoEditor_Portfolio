@@ -6,13 +6,47 @@
 
 .xp-head {
   display: grid;
-  gap: 28px;
-  max-width: 900px;
+  gap: 22px;
+  max-width: 980px;
   margin-bottom: clamp(56px, 7vw, 100px);
 }
+.xp-title {
+  font-weight: 800;
+  font-size: clamp(40px, 11vw, 176px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'wdth' 125;
+}
+.xp-where {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
 .xp-logo {
-  width: clamp(140px, 14vw, 200px);
+  width: clamp(130px, 12vw, 180px);
   height: auto;
+}
+.xp-span {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+.xp-span span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--dim);
+}
+.xp-sub {
+  max-width: 44ch;
+  color: rgba(236, 235, 231, 0.72);
 }
 
 .takes {
@@ -187,6 +221,10 @@
 }
 
 @media (max-width: 700px) {
+  .xp-title {
+    font-size: 17vw;
+    font-variation-settings: 'wdth' 90;
+  }
   .slate-meta {
     grid-template-columns: 1fr 1fr;
   }
