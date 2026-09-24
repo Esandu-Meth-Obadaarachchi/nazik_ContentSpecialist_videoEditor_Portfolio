@@ -10,6 +10,7 @@ const clamp01 = (t: number) => Math.min(1, Math.max(0, t))
 const seg = (p: number, a: number, b: number) => clamp01((p - a) / (b - a))
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
+const PHONE = 9 / 19.5
 
 function chars(word: string) {
   return word.split('').map((c, i) => (
@@ -20,7 +21,7 @@ function chars(word: string) {
 }
 
 /**
- * Cinemascope to reel. The 2.39:1 frame closes in from the sides into a 9:16 phone
+ * Cinemascope to reel. The 2.39:1 frame closes in from the sides into a phone-shaped reel
  * while the name condenses along the font's width axis and splits to flank it.
  */
 export default function Hero({ ready }: { ready: boolean }) {
@@ -93,11 +94,12 @@ export default function Hero({ ready }: { ready: boolean }) {
         vh = window.innerHeight
         wide = vw >= 760
         h0 = Math.min(vw / 2.39, vh * 0.78)
-        h1 = wide ? vh * 0.78 : vh * 0.56
-        w1 = (h1 * 9) / 16
+        // final frame uses a real iPhone screen ratio (9:19.5), not a squat 9:16
+        h1 = wide ? vh * 0.8 : vh * 0.6
+        w1 = h1 * PHONE
         if (w1 > vw * 0.82) {
           w1 = vw * 0.82
-          h1 = (w1 * 16) / 9
+          h1 = w1 / PHONE
         }
         nameH = first.offsetHeight
         const prev = first.style.fontVariationSettings
@@ -112,7 +114,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         const h = lerp(h0, h1, tFrame)
         const top = (vh - h) / 2
         const left = (vw - w) / 2
-        const rad = lerp(0, w1 * 0.13, easeOut(seg(p, 0.35, 0.62)))
+        const rad = lerp(0, w1 * 0.15, easeOut(seg(p, 0.35, 0.62)))
         frame.style.clipPath = `inset(${top}px ${left}px ${top}px ${left}px round ${rad}px)`
         vid.style.transform = `scale(${lerp(1.12, 1, tFrame)})`
         lines.style.transform = `translate(${left}px, ${top}px)`
@@ -120,7 +122,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         lines.style.height = `${h}px`
         lines.style.opacity = String(1 - seg(p, 0.55, 0.7))
         dims.textContent = `${Math.round(w)} × ${Math.round(h)}`
-        aspect.textContent = tFrame > 0.985 ? '9:16' : tFrame < 0.015 ? '2.39:1' : (w / h).toFixed(2) + ':1'
+        aspect.textContent = tFrame > 0.985 ? '9:19.5' : tFrame < 0.015 ? '2.39:1' : (w / h).toFixed(2) + ':1'
         hud.style.transform = `translate(${left}px, ${top}px)`
         hud.style.width = `${w}px`
         hud.style.opacity = String(1 - seg(p, 0.6, 0.72))
@@ -137,7 +139,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           last.style.transform = `translate3d(${sx + dx}px, 0, 0)`
         } else {
           // stacked on phones, then pushed above and below the reel
-          const dy = lerp(nameH * 0.5, h1 / 2 + nameH * 0.6, tName)
+          const dy = lerp(nameH * 0.5, h1 / 2 + nameH * 0.78, tName)
           first.style.transform = `translate3d(${sx}px, ${-dy}px, 0)`
           last.style.transform = `translate3d(${sx}px, ${dy}px, 0)`
         }
@@ -147,7 +149,7 @@ export default function Hero({ ready }: { ready: boolean }) {
 
         // device + reel interface assemble around the final frame
         const tDev = easeOut(seg(p, 0.58, 0.78))
-        device.style.setProperty('--rad', `${w1 * 0.13}px`)
+        device.style.setProperty('--rad', `${w1 * 0.15}px`)
         device.style.width = `${w1}px`
         device.style.height = `${h1}px`
         device.style.opacity = String(tDev)
