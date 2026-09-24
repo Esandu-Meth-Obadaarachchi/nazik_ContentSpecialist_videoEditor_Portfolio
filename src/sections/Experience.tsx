@@ -48,10 +48,17 @@ export default function Experience() {
     <section id="experience" ref={root} className="experience" aria-labelledby="xp-title">
       <div className="wrap">
         <header className="xp-head">
-          <img className="xp-logo" src="/media/logos/zirateh.png" alt="Zirateh" width={392} height={95} />
-          <h2 id="xp-title" className="t-h2">
-            Three takes at one studio. Each one closer to the whole story.
+          <h2 id="xp-title" className="xp-title">
+            Experience
           </h2>
+          <div className="xp-where">
+            <img className="xp-logo" src="/media/logos/zirateh.png" alt="Zirateh" width={392} height={95} />
+            <p className="t-mono xp-span">
+              Oct 2021 - Present
+              <span>3 roles</span>
+            </p>
+          </div>
+          <p className="t-lead xp-sub">Three takes at one studio, from junior editor to leading content end to end.</p>
         </header>
 
         <div className="takes">
