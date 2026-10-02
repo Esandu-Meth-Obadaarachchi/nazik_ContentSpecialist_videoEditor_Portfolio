@@ -233,7 +233,7 @@
   bottom: 0;
   height: 3px;
   background: rgba(255, 255, 255, 0.25);
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 var(--rad, 40px) var(--rad, 40px);
   overflow: hidden;
 }
 .hr-progress::after {
