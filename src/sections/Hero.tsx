@@ -151,7 +151,9 @@ export default function Hero({ ready }: { ready: boolean }) {
 
         // device + reel interface assemble around the final frame
         const tDev = easeOut(seg(p, 0.58, 0.78))
-        device.style.setProperty('--rad', `${w1 * 0.15}px`)
+        const radPx = `${w1 * 0.15}px`
+        device.style.setProperty('--rad', radPx)
+        reelui.style.setProperty('--rad', radPx)
         device.style.width = `${w1}px`
         device.style.height = `${h1}px`
         device.style.opacity = String(tDev)
