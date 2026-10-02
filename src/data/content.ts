@@ -28,10 +28,9 @@ export const person = {
   last: 'Hamza',
   full: 'Mohamed Nazik Hamza',
   roles: ['Brand & content strategist', 'Automotive marketing lead', 'Video editor'],
-  // TODO(nazik): replace with real contact details before publishing.
   contact: {
-    email: 'hello@example.com',
-    phone: '',
+    email: 'contact.nazik@gmail.com',
+    phone: '+94 71 144 3485',
     linkedin: '',
     instagram: '',
   },
