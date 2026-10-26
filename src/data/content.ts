@@ -204,6 +204,26 @@ export const jetour = {
   ] as Reel[],
 }
 
+export const perodua = {
+  client: 'Perodua Sri Lanka',
+  period: 'Jun - Aug 2026',
+  title: 'Showroom Sitcom',
+  summary:
+    'Salesgirl skits shot on the showroom floor. The comedy pulls people in; price and fuel efficiency land in the punchline.',
+  sticker: {
+    views: 549,
+    reels: 5,
+    models: ['Myvi G', 'Myvi H', 'Alza', 'Aruz', 'Ativa', 'Axia SE'],
+  },
+  reels: [
+    { id: 'pd-01', hook: 'Caught between two salesgirls', original: 'අලුත් වාහනයක් බලන්න ගිහින් SALES GIRLS දෙන්නෙක්ට අහුවුණා', url: 'https://www.facebook.com/reel/1608747657332967', views: { ig: null, fb: 142_000, tt: null }, ...r('pd-01') },
+    { id: 'pd-05', hook: '3 fuel-efficient cars under Rs. 15M', url: 'https://www.facebook.com/reel/27705512335727784', views: { ig: null, fb: 112_000, tt: null }, ...r('pd-05') },
+    { id: 'pd-04', hook: 'Can you show me an SUV under Rs. 16M?', url: 'https://www.facebook.com/reel/1347425504117606', views: { ig: null, fb: 110_000, tt: null }, ...r('pd-04') },
+    { id: 'pd-03', hook: '7 seats, 4 modes: the family road-trip car', url: 'https://www.facebook.com/reel/1346931733985852', views: { ig: null, fb: 101_000, tt: null }, ...r('pd-03') },
+    { id: 'pd-02', hook: 'A lesson for the new salesgirl', original: 'අලුත් SALES GIRL ට හොඳ පාඩමක්', url: 'https://www.facebook.com/reel/3091408771066511', views: { ig: null, fb: 84_000, tt: null }, ...r('pd-02') },
+  ] as Reel[],
+}
+
 export const timekeeper = {
   title: 'Watch talk people actually watch',
   summary: 'Short-form for a luxury watch house: care tips, collection tours and strong opinions, fronted in English and Sinhala.',
@@ -289,7 +309,7 @@ export const credits = [
   { role: 'Scripts', names: [person.full] },
   { role: 'Shoot direction', names: [person.full] },
   { role: 'Edit', names: [person.full] },
-  { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Timekeeper', 'The Butler', 'Perodua', 'Forthing'] },
+  { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Perodua Sri Lanka', 'Timekeeper', 'The Butler', 'Forthing'] },
   { role: 'Studio', names: ['Zirateh'] },
   { role: 'Recognition', names: ['SLIM DIGIS 2026, Bronze (Jetour)'] },
 ]
@@ -301,6 +321,7 @@ export const chapters = [
   { id: 'experience', label: 'Experience', color: '#8A8A95', cursor: '#ECEBE7' },
   { id: 'dongfeng', label: 'Dongfeng', color: '#3E5CFF', cursor: '#CDEB35' },
   { id: 'jetour', label: 'Jetour', color: '#B3B5DC', cursor: '#B3B5DC' },
+  { id: 'perodua', label: 'Perodua', color: '#E2231A', cursor: '#E2231A' },
   { id: 'timekeeper', label: 'Timekeeper', color: '#D2AE55', cursor: '#D2AE55' },
   { id: 'butler', label: 'The Butler', color: '#E7E3DB', cursor: '#141414' },
   { id: 'edits', label: 'Edits', color: '#FF3B2F', cursor: '#ECEBE7' },
