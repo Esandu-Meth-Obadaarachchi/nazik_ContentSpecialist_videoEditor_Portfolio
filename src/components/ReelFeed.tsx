@@ -134,9 +134,13 @@ export default function ReelFeed({ reels: input, handle, accent, title = 'Organi
                   )}
                   {r.views && (
                     <span className="fi-split t-mono">
-                      <span>IG {platformLabel(r.views, 'ig')}</span>
-                      <span>FB {platformLabel(r.views, 'fb')}</span>
-                      <span>TT {platformLabel(r.views, 'tt')}</span>
+                      {(['ig', 'fb', 'tt'] as const)
+                        .filter((k) => r.views![k] != null)
+                        .map((k) => (
+                          <span key={k}>
+                            {k.toUpperCase()} {platformLabel(r.views!, k)}
+                          </span>
+                        ))}
                     </span>
                   )}
                 </span>

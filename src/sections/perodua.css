@@ -1,0 +1,214 @@
+.pd {
+  --pd-red: #e2231a;
+  --pd-green: #00a650;
+  --pd-white: #eef0f2;
+  --pd-ink: #15171a;
+  position: relative;
+  background: var(--pd-white);
+  color: var(--pd-ink);
+}
+
+/* ---------- lights-on opening ---------- */
+.pd-open {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #0f1114;
+}
+
+.pd-ceiling {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pd-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: clamp(14px, 2vw, 22px);
+  z-index: 2;
+}
+.pd-logo {
+  width: clamp(90px, 8vw, 128px);
+  height: auto;
+  filter: brightness(0.12);
+}
+.pd-h1 {
+  font-weight: 800;
+  font-size: clamp(48px, 8.4vw, 140px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'wdth' 112;
+  color: var(--pd-ink);
+}
+.pd-h1::after {
+  content: '';
+  display: block;
+  width: 0.9em;
+  height: 0.09em;
+  margin: 0.2em auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pd-red) 0 60%, var(--pd-green) 60%);
+}
+.pd-sum {
+  max-width: 40ch;
+  color: rgba(21, 23, 26, 0.72);
+}
+.pd-meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--timeline-h) + 30px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 26px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(21, 23, 26, 0.6);
+  z-index: 2;
+}
+
+/* ---------- body ---------- */
+.pd-body {
+  position: relative;
+  padding: clamp(60px, 8vw, 120px) 0 clamp(110px, 12vw, 180px);
+  background: linear-gradient(180deg, var(--pd-white), #f6f7f8 40%, var(--pd-white));
+}
+
+/* dealer windshield sticker */
+.pd-sticker-wrap {
+  display: grid;
+  justify-items: center;
+  margin-bottom: clamp(110px, 14vw, 200px);
+}
+.pd-sticker {
+  width: min(100%, 460px);
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.06),
+    0 40px 70px -30px rgba(40, 20, 20, 0.35),
+    0 14px 24px -14px rgba(40, 20, 20, 0.25);
+  transform: rotate(-2.5deg);
+}
+.pd-stk-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--pd-red);
+  color: #fff;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.pd-stk-hero {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  padding: 22px 22px 18px;
+  border-bottom: 2px dashed rgba(21, 23, 26, 0.16);
+}
+.pd-stk-hero > .t-mono {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(21, 23, 26, 0.55);
+}
+.pd-stk-big {
+  font-weight: 800;
+  font-size: clamp(72px, 9vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-variation-settings: 'wdth' 110;
+  font-variant-numeric: tabular-nums;
+  color: var(--pd-ink);
+}
+.pd-stk-note {
+  font-size: 14px;
+  color: rgba(21, 23, 26, 0.62);
+}
+.pd-stk-rows {
+  padding: 6px 22px;
+}
+.pd-stk-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 11px 0;
+}
+.pd-stk-row + .pd-stk-row {
+  border-top: 1px solid rgba(21, 23, 26, 0.08);
+}
+.pd-stk-row dt {
+  font-size: 14px;
+  color: rgba(21, 23, 26, 0.62);
+}
+.pd-stk-row dd {
+  font-weight: 700;
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.pd-stk-models {
+  display: grid;
+  gap: 10px;
+}
+.pd-stk-models dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  text-align: left;
+}
+.pd-stk-models dd span {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f1f2f4;
+  border: 1px solid rgba(21, 23, 26, 0.08);
+}
+.pd-stk-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 22px 18px;
+  background: #fafafa;
+}
+.pd-barcode {
+  width: 140px;
+  height: 30px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pd-ink) 0 2px,
+    transparent 2px 4px,
+    var(--pd-ink) 4px 5px,
+    transparent 5px 8px,
+    var(--pd-ink) 8px 11px,
+    transparent 11px 13px
+  );
+}
+.pd-stk-foot .t-mono {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(21, 23, 26, 0.5);
+}
+
+/* reel feed on a light ground */
+.pd-reels .feed-sum strong {
+  color: var(--pd-red);
+}
+

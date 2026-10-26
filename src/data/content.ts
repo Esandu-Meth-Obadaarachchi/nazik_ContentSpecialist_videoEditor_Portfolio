@@ -17,7 +17,7 @@ export type Edit = {
   id: string
   title: string
   kind: string
-  aspect: '16:9' | '9:16'
+  aspect: '16:9' | '9:16' | '1:1'
   poster: string
   src?: string
   sprite?: { url: string; cols: number; rows: number; count: number; interval: number }
@@ -204,6 +204,26 @@ export const jetour = {
   ] as Reel[],
 }
 
+export const perodua = {
+  client: 'Perodua Sri Lanka',
+  period: 'Jun - Aug 2026',
+  title: 'Showroom Sitcom',
+  summary:
+    'Salesgirl skits shot on the showroom floor. The comedy pulls people in; price and fuel efficiency land in the punchline.',
+  sticker: {
+    views: 549,
+    reels: 5,
+    models: ['Myvi G', 'Myvi H', 'Alza', 'Aruz', 'Ativa', 'Axia SE'],
+  },
+  reels: [
+    { id: 'pd-01', hook: 'Caught between two salesgirls', original: 'අලුත් වාහනයක් බලන්න ගිහින් SALES GIRLS දෙන්නෙක්ට අහුවුණා', url: 'https://www.facebook.com/reel/1608747657332967', views: { ig: null, fb: 142_000, tt: null }, ...r('pd-01') },
+    { id: 'pd-05', hook: '3 fuel-efficient cars under Rs. 15M', url: 'https://www.facebook.com/reel/27705512335727784', views: { ig: null, fb: 112_000, tt: null }, ...r('pd-05') },
+    { id: 'pd-04', hook: 'Can you show me an SUV under Rs. 16M?', url: 'https://www.facebook.com/reel/1347425504117606', views: { ig: null, fb: 110_000, tt: null }, ...r('pd-04') },
+    { id: 'pd-03', hook: '7 seats, 4 modes: the family road-trip car', url: 'https://www.facebook.com/reel/1346931733985852', views: { ig: null, fb: 101_000, tt: null }, ...r('pd-03') },
+    { id: 'pd-02', hook: 'A lesson for the new salesgirl', original: 'අලුත් SALES GIRL ට හොඳ පාඩමක්', url: 'https://www.facebook.com/reel/3091408771066511', views: { ig: null, fb: 84_000, tt: null }, ...r('pd-02') },
+  ] as Reel[],
+}
+
 export const timekeeper = {
   title: 'Watch talk people actually watch',
   summary: 'Short-form for a luxury watch house: care tips, collection tours and strong opinions, fronted in English and Sinhala.',
@@ -236,12 +256,74 @@ export const edits: Edit[] = [
     src: '/media/video/car-edit.mp4',
     sprite: { url: '/media/video/car-edit-sprite.jpg', cols: 10, rows: 5, count: 43, interval: 0.5 },
   },
-  { id: 'crowdfunder', title: 'Crowdfunder film', kind: 'Campaign video', aspect: '16:9', poster: '/media/edits/crowdfunder.jpg' },
-  { id: 'explainer-1', title: 'Tradition, your brand, technology', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-1.jpg' },
-  { id: 'explainer-2', title: 'Ceramic vs plastic', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-2.jpg' },
-  { id: 'explainer-3', title: 'Found on Google', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-3.jpg' },
-  { id: 'explainer-4', title: 'The dream home', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-4.jpg' },
+  {
+    id: 'crowdfunder',
+    title: 'Crowdfunder film',
+    kind: 'Campaign video',
+    aspect: '16:9',
+    poster: '/media/edits/crowdfunder.jpg',
+    src: '/media/edits/crowdfunder.mp4',
+    sprite: { url: '/media/edits/crowdfunder-sprite.jpg', cols: 10, rows: 10, count: 76, interval: 2 },
+  },
+  {
+    id: 'explainer-1',
+    title: 'Tradition, your brand, technology',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-1.jpg',
+    src: '/media/edits/explainer-1.mp4',
+    sprite: { url: '/media/edits/explainer-1-sprite.jpg', cols: 10, rows: 10, count: 73, interval: 1 },
+  },
+  {
+    id: 'explainer-2',
+    title: 'Ceramic vs plastic',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-2.jpg',
+    src: '/media/edits/explainer-2.mp4',
+    sprite: { url: '/media/edits/explainer-2-sprite.jpg', cols: 10, rows: 10, count: 69, interval: 0.5 },
+  },
+  {
+    id: 'explainer-3',
+    title: 'Found on Google',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-3.jpg',
+    src: '/media/edits/explainer-3.mp4',
+    sprite: { url: '/media/edits/explainer-3-sprite.jpg', cols: 10, rows: 10, count: 57, interval: 1 },
+  },
+  {
+    id: 'explainer-4',
+    title: 'The dream home',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-4.jpg',
+    src: '/media/edits/explainer-4.mp4',
+    sprite: { url: '/media/edits/explainer-4-sprite.jpg', cols: 10, rows: 10, count: 72, interval: 0.5 },
+  },
 ]
+
+export type YouTubeEdit = { id: string; title: string; views: number; duration: number; date: string }
+
+// Long-form YouTube edits for Olympic 400m champion Sanya Richards-Ross, through Zirateh.
+export const rosses = {
+  channel: 'Rolling with The Rosses',
+  channelUrl: 'https://www.youtube.com/@RollingwithTheRosses',
+  client: 'Sanya Richards-Ross',
+  clientNote: 'Olympic 400m gold medallist',
+  summary:
+    "Long-form family vlogs and Shorts for Olympic 400m champion Sanya Richards-Ross's YouTube channel, edited through Zirateh.",
+  videos: [
+    { id: 'srsrCKNb4PY', title: 'The Rosses take the Kalahari Resorts in Texas!', views: 987_581, duration: 1098, date: 'Mar 2026' },
+    { id: 'Jt7El67Lb6A', title: 'The Rosses almost miss Christmas flight because of mismatched shoes???', views: 248_149, duration: 440, date: 'Jan 2026' },
+    { id: 'tMYHfmVda4Q', title: "It's a Texas TAKEOVER!!!", views: 240_247, duration: 807, date: 'Mar 2026' },
+    { id: '0gFkAaBn2cA', title: 'Game 3 was another big win, but Deucey learned something priceless about being a team player', views: 226_332, duration: 803, date: 'Dec 2025' },
+    { id: 'tKvh_9VYNZU', title: "He's a big boy now! Asani's very first haircut", views: 196_069, duration: 902, date: 'Dec 2025' },
+    { id: 'SWSTOTXzqDc', title: "We transformed Asani's nursery into a big boy room", views: 160_750, duration: 1251, date: 'Apr 2026' },
+    { id: 'xQQhaOCAdUQ', title: "'Twas the night before Christmas with the Rosses", views: 148_576, duration: 1135, date: 'Jan 2026' },
+    { id: 'kFtnwXtiiOI', title: 'A very special Christmas Day!!!', views: 148_358, duration: 1071, date: 'Feb 2026' },
+  ] as YouTubeEdit[],
+}
 
 export const credits = [
   { role: 'Brand strategy', names: [person.full] },
@@ -249,7 +331,8 @@ export const credits = [
   { role: 'Scripts', names: [person.full] },
   { role: 'Shoot direction', names: [person.full] },
   { role: 'Edit', names: [person.full] },
-  { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Timekeeper', 'The Butler', 'Perodua', 'Forthing'] },
+  { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Perodua Sri Lanka', 'Timekeeper', 'The Butler', 'Forthing'] },
+  { role: 'YouTube', names: ['Rolling with The Rosses (Sanya Richards-Ross)'] },
   { role: 'Studio', names: ['Zirateh'] },
   { role: 'Recognition', names: ['SLIM DIGIS 2026, Bronze (Jetour)'] },
 ]
@@ -261,6 +344,7 @@ export const chapters = [
   { id: 'experience', label: 'Experience', color: '#8A8A95', cursor: '#ECEBE7' },
   { id: 'dongfeng', label: 'Dongfeng', color: '#3E5CFF', cursor: '#CDEB35' },
   { id: 'jetour', label: 'Jetour', color: '#B3B5DC', cursor: '#B3B5DC' },
+  { id: 'perodua', label: 'Perodua', color: '#E2231A', cursor: '#E2231A' },
   { id: 'timekeeper', label: 'Timekeeper', color: '#D2AE55', cursor: '#D2AE55' },
   { id: 'butler', label: 'The Butler', color: '#E7E3DB', cursor: '#141414' },
   { id: 'edits', label: 'Edits', color: '#FF3B2F', cursor: '#ECEBE7' },
