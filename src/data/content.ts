@@ -17,7 +17,7 @@ export type Edit = {
   id: string
   title: string
   kind: string
-  aspect: '16:9' | '9:16'
+  aspect: '16:9' | '9:16' | '1:1'
   poster: string
   src?: string
   sprite?: { url: string; cols: number; rows: number; count: number; interval: number }
@@ -236,11 +236,51 @@ export const edits: Edit[] = [
     src: '/media/video/car-edit.mp4',
     sprite: { url: '/media/video/car-edit-sprite.jpg', cols: 10, rows: 5, count: 43, interval: 0.5 },
   },
-  { id: 'crowdfunder', title: 'Crowdfunder film', kind: 'Campaign video', aspect: '16:9', poster: '/media/edits/crowdfunder.jpg' },
-  { id: 'explainer-1', title: 'Tradition, your brand, technology', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-1.jpg' },
-  { id: 'explainer-2', title: 'Ceramic vs plastic', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-2.jpg' },
-  { id: 'explainer-3', title: 'Found on Google', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-3.jpg' },
-  { id: 'explainer-4', title: 'The dream home', kind: 'Explainer', aspect: '9:16', poster: '/media/edits/explainer-4.jpg' },
+  {
+    id: 'crowdfunder',
+    title: 'Crowdfunder film',
+    kind: 'Campaign video',
+    aspect: '16:9',
+    poster: '/media/edits/crowdfunder.jpg',
+    src: '/media/edits/crowdfunder.mp4',
+    sprite: { url: '/media/edits/crowdfunder-sprite.jpg', cols: 10, rows: 10, count: 76, interval: 2 },
+  },
+  {
+    id: 'explainer-1',
+    title: 'Tradition, your brand, technology',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-1.jpg',
+    src: '/media/edits/explainer-1.mp4',
+    sprite: { url: '/media/edits/explainer-1-sprite.jpg', cols: 10, rows: 10, count: 73, interval: 1 },
+  },
+  {
+    id: 'explainer-2',
+    title: 'Ceramic vs plastic',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-2.jpg',
+    src: '/media/edits/explainer-2.mp4',
+    sprite: { url: '/media/edits/explainer-2-sprite.jpg', cols: 10, rows: 10, count: 69, interval: 0.5 },
+  },
+  {
+    id: 'explainer-3',
+    title: 'Found on Google',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-3.jpg',
+    src: '/media/edits/explainer-3.mp4',
+    sprite: { url: '/media/edits/explainer-3-sprite.jpg', cols: 10, rows: 10, count: 57, interval: 1 },
+  },
+  {
+    id: 'explainer-4',
+    title: 'The dream home',
+    kind: 'Explainer',
+    aspect: '1:1',
+    poster: '/media/edits/explainer-4.jpg',
+    src: '/media/edits/explainer-4.mp4',
+    sprite: { url: '/media/edits/explainer-4-sprite.jpg', cols: 10, rows: 10, count: 72, interval: 0.5 },
+  },
 ]
 
 export const credits = [

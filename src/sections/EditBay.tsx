@@ -70,12 +70,13 @@ function Monitor({ item }: { item: Edit }) {
   }
 
   const sprite = item.sprite
+  const shape = item.aspect === '9:16' ? 'tall' : item.aspect === '1:1' ? 'square' : 'wide'
   const frame = hover && sprite ? Math.min(sprite.count - 1, Math.floor(hover.t / sprite.interval)) : 0
 
   return (
     <div ref={box} className="eb-monitor">
-      <div className={`eb-screen is-${item.aspect === '9:16' ? 'tall' : 'wide'}`}>
-        {item.aspect === '9:16' && <img className="eb-fill" src={item.poster} alt="" aria-hidden="true" />}
+      <div className={`eb-screen is-${shape}`}>
+        {shape !== 'wide' && <img className="eb-fill" src={item.poster} alt="" aria-hidden="true" />}
         {item.src ? (
           <video
             ref={video}
@@ -150,7 +151,7 @@ function Monitor({ item }: { item: Edit }) {
           {hover && sprite && (
             <span className="eb-thumb" style={{ left: hover.x }}>
               <span
-                className="eb-thumb-img"
+                className={`eb-thumb-img is-${shape}`}
                 style={{
                   backgroundImage: `url(${sprite.url})`,
                   backgroundSize: `${sprite.cols * 100}% ${sprite.rows * 100}%`,
@@ -237,7 +238,7 @@ export default function EditBay() {
               {edits.map((e) => (
                 <li key={e.id}>
                   <button className={`eb-clip${e.id === sel ? ' is-on' : ''}`} onClick={() => setSel(e.id)} aria-pressed={e.id === sel}>
-                    <span className={`eb-clip-thumb is-${e.aspect === '9:16' ? 'tall' : 'wide'}`}>
+                    <span className={`eb-clip-thumb is-${e.aspect === '9:16' ? 'tall' : e.aspect === '1:1' ? 'square' : 'wide'}`}>
                       <img src={e.poster} alt="" loading="lazy" />
                     </span>
                     <span className="eb-clip-text">
@@ -253,6 +254,7 @@ export default function EditBay() {
             </ul>
           </div>
         </div>
+
       </div>
     </section>
   )
