@@ -11,6 +11,7 @@ import EditBay from './sections/EditBay'
 import Experience from './sections/Experience'
 import Hero from './sections/Hero'
 import Jetour from './sections/Jetour'
+import Perodua from './sections/Perodua'
 import Process from './sections/Process'
 import Timekeeper from './sections/Timekeeper'
 import { ScrollTrigger, startSmoothScroll } from './lib/motion'
@@ -41,6 +42,7 @@ export default function App() {
         <Experience />
         <Dongfeng />
         <Jetour />
+        <Perodua />
         <Timekeeper />
         <Butler />
         <EditBay />

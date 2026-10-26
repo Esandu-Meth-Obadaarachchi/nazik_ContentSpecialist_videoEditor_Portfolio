@@ -24,33 +24,29 @@ Deploy `dist/` to any static host (Vercel, Netlify, Cloudflare Pages, S3). No se
 | Logos, car cutouts, portrait | `public/media/logos/`, `public/media/img/` |
 | One section per file | `src/sections/` |
 
-## Before publishing
+## Adding an edit video
 
-1. **Contact details**: `person.contact` in `src/data/content.ts` is a placeholder
-   (`hello@example.com`). Fill in email, and optionally phone / LinkedIn / Instagram; each
-   link only renders when it has a value.
-
-## Adding the missing edit videos
-
-The edit showcase lists five items that show a still for now. When the files arrive:
+All edits in the showcase play from self-hosted files in `public/media/edits/`.
 
 1. Encode for the web (H.264, faststart so it streams):
    ```bash
-   ffmpeg -i input.mov -vf "scale='min(1920,iw)':-2" -c:v libx264 -crf 23 -preset slow \
-     -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k public/media/edits/crowdfunder.mp4
+   ffmpeg -i input.mov -vf "scale='min(1280,iw)':-2" -c:v libx264 -crf 25 -preset slow \
+     -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 128k public/media/edits/my-edit.mp4
    ```
-   For 9:16 explainers use `scale=720:-2` instead.
-2. In `src/data/content.ts`, add `src: '/media/edits/<name>.mp4'` to that item in `edits`.
-   The "Still" label disappears and the monitor gets full playback controls.
-3. Optional hover-scrub thumbnails (like the car edit):
+2. Add an entry to `edits` in `src/data/content.ts` with `src`, `poster` and `aspect`
+   (`'16:9'`, `'9:16'` or `'1:1'`).
+3. Optional hover-scrub thumbnails:
    ```bash
-   ffmpeg -i public/media/edits/crowdfunder.mp4 -vf "fps=2,scale=192:108,tile=10x5" -frames:v 1 \
-     public/media/edits/crowdfunder-sprite.jpg
+   ffmpeg -i public/media/edits/my-edit.mp4 -vf "fps=1,scale=192:108,tile=10x10" -frames:v 1 \
+     public/media/edits/my-edit-sprite.jpg
    ```
-   then add `sprite: { url: '/media/edits/crowdfunder-sprite.jpg', cols: 10, rows: 5, count: <seconds*2>, interval: 0.5 }`.
+   then add `sprite: { url, cols: 10, rows: 10, count: <frames>, interval: 1 }`.
 
-If he sends links (Drive, YouTube, Facebook) rather than files, download the source first; the
-site plays self-hosted MP4s so it works everywhere, including iPhone Safari.
+## Long-form YouTube edits
+
+The "Rolling with The Rosses" block plays YouTube videos in place (privacy-enhanced embed), so
+nothing is self-hosted. Add a video to `rosses.videos` in `src/data/content.ts` and drop its
+thumbnail at `public/media/rosses/<youtube-id>.jpg`. Totals and the view bars update on their own.
 
 ## Adding or updating a reel
 
