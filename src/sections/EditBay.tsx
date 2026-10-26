@@ -4,6 +4,7 @@ import { edits, type Edit } from '../data/content'
 import { timecode } from '../lib/format'
 import { mediaBus } from '../lib/media'
 import { gsap, reducedMotion, useGSAP } from '../lib/motion'
+import Rosses from './Rosses'
 import './editbay.css'
 
 function Monitor({ item }: { item: Edit }) {
@@ -255,6 +256,7 @@ export default function EditBay() {
           </div>
         </div>
 
+        <Rosses />
       </div>
     </section>
   )

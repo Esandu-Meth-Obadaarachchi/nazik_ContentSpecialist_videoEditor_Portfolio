@@ -303,6 +303,28 @@ export const edits: Edit[] = [
   },
 ]
 
+export type YouTubeEdit = { id: string; title: string; views: number; duration: number; date: string }
+
+// Long-form YouTube edits for Olympic 400m champion Sanya Richards-Ross, through Zirateh.
+export const rosses = {
+  channel: 'Rolling with The Rosses',
+  channelUrl: 'https://www.youtube.com/@RollingwithTheRosses',
+  client: 'Sanya Richards-Ross',
+  clientNote: 'Olympic 400m gold medallist',
+  summary:
+    "Long-form family vlogs and Shorts for Olympic 400m champion Sanya Richards-Ross's YouTube channel, edited through Zirateh.",
+  videos: [
+    { id: 'srsrCKNb4PY', title: 'The Rosses take the Kalahari Resorts in Texas!', views: 987_581, duration: 1098, date: 'Mar 2026' },
+    { id: 'Jt7El67Lb6A', title: 'The Rosses almost miss Christmas flight because of mismatched shoes???', views: 248_149, duration: 440, date: 'Jan 2026' },
+    { id: 'tMYHfmVda4Q', title: "It's a Texas TAKEOVER!!!", views: 240_247, duration: 807, date: 'Mar 2026' },
+    { id: '0gFkAaBn2cA', title: 'Game 3 was another big win, but Deucey learned something priceless about being a team player', views: 226_332, duration: 803, date: 'Dec 2025' },
+    { id: 'tKvh_9VYNZU', title: "He's a big boy now! Asani's very first haircut", views: 196_069, duration: 902, date: 'Dec 2025' },
+    { id: 'SWSTOTXzqDc', title: "We transformed Asani's nursery into a big boy room", views: 160_750, duration: 1251, date: 'Apr 2026' },
+    { id: 'xQQhaOCAdUQ', title: "'Twas the night before Christmas with the Rosses", views: 148_576, duration: 1135, date: 'Jan 2026' },
+    { id: 'kFtnwXtiiOI', title: 'A very special Christmas Day!!!', views: 148_358, duration: 1071, date: 'Feb 2026' },
+  ] as YouTubeEdit[],
+}
+
 export const credits = [
   { role: 'Brand strategy', names: [person.full] },
   { role: 'Creative direction', names: [person.full] },
@@ -310,6 +332,7 @@ export const credits = [
   { role: 'Shoot direction', names: [person.full] },
   { role: 'Edit', names: [person.full] },
   { role: 'Brands', names: ['Dongfeng Sri Lanka', 'Jetour Sri Lanka', 'Perodua Sri Lanka', 'Timekeeper', 'The Butler', 'Forthing'] },
+  { role: 'YouTube', names: ['Rolling with The Rosses (Sanya Richards-Ross)'] },
   { role: 'Studio', names: ['Zirateh'] },
   { role: 'Recognition', names: ['SLIM DIGIS 2026, Bronze (Jetour)'] },
 ]
