@@ -308,7 +308,7 @@ export type YouTubeEdit = { id: string; title: string; views: number; duration: 
 // Long-form YouTube edits for Olympic 400m champion Sanya Richards-Ross, through Zirateh.
 export const rosses = {
   channel: 'Rolling with The Rosses',
-  channelUrl: 'https://www.youtube.com/@RollingwithTheRosses',
+  channelUrl: 'https://www.youtube.com/@RollingWithTheRossesYTP',
   client: 'Sanya Richards-Ross',
   clientNote: 'Olympic 400m gold medallist',
   summary:
