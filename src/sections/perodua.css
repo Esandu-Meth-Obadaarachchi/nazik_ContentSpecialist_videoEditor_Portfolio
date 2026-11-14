@@ -37,9 +37,8 @@
   z-index: 2;
 }
 .pd-logo {
-  width: clamp(90px, 8vw, 128px);
+  width: clamp(120px, 11vw, 168px);
   height: auto;
-  filter: brightness(0.12);
 }
 .pd-h1 {
   font-weight: 800;
