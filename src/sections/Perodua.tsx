@@ -73,7 +73,7 @@ export default function Perodua() {
         <ShowroomCeiling ref={ceiling} className="pd-ceiling" />
 
         <div className="pd-title wrap">
-          <img className="pd-logo" src="/media/logos/perodua.png" alt="Perodua" width={308} height={212} />
+          <img className="pd-logo" src="/media/logos/perodua-color.png" alt="Perodua" width={543} height={368} />
           <h2 id="pd-title" className="pd-h1">
             {p.title}
           </h2>
