@@ -162,7 +162,6 @@ export const jetour = {
   title: 'Made in China',
   summary: "How Jetour earned trust from zero in Sri Lanka's most skeptical vehicle category.",
   views: 62.9,
-  challengeLead: 'We were selling a Chinese SUV to a market primed to distrust it.',
   pillars: [
     {
       title: 'Design as the core pitch',

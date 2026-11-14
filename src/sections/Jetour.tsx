@@ -105,9 +105,6 @@ export default function Jetour() {
         onUpdate: (self) => ign.progress(self.progress),
       })
 
-      // problem banner parallax
-      gsap.fromTo('.jt-wheels img', { yPercent: -12, scale: 1.15 }, { yPercent: 12, scale: 1.05, ease: 'none', scrollTrigger: { trigger: '.jt-wheels', scrub: true } })
-
       gsap.from('.jt-pillar', {
         y: 50,
         opacity: 0,
@@ -176,13 +173,8 @@ export default function Jetour() {
         </div>
       </div>
 
-      {/* 2. the problem */}
+      {/* 2. pillars */}
       <div className="jt-body">
-        <figure className="jt-wheels">
-          <img src="/media/img/jetour-wheels.webp" alt="" loading="lazy" />
-          <figcaption className="wrap t-h2">{j.challengeLead}</figcaption>
-        </figure>
-
         <ul className="wrap jt-pillars">
           {j.pillars.map((p) => (
             <li key={p.title} className="jt-pillar">
